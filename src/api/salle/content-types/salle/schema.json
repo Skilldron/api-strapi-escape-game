@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "salles",
+  "info": {
+    "singularName": "salle",
+    "pluralName": "salles",
+    "displayName": "Salle",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nom": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "mission": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::mission.mission",
+      "inversedBy": "salles"
+    },
+    "rdvs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::rdv.rdv",
+      "mappedBy": "salle"
+    }
+  }
+}
